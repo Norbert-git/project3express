@@ -9,6 +9,7 @@ const configOptions = {
 }
 
 mongoose.connect(connectionString, configOptions)
+mongoose.connect( process.env.MONGODB_URI || "mongodb://localhost:27017/toolorganizer"
     .then(() => console.log('MongoDB successfully connected...', connectionString))
     .catch(err => console.log(`MongoDB connection error: ${err}`))
 

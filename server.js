@@ -41,5 +41,5 @@ app.use(passport.session())
 app.use('/users', routes.users)
 app.use('/auth', routes.auth)
 
-
-app.listen(port, () => console.log(`Server is running on port ${port}`))
+app.listen(process.env.PORT || 3000)
+// app.listen(port, () => console.log(`Server is running on port ${port}`))
