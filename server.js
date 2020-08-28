@@ -14,7 +14,7 @@ app.use(express.json())
 
 
 const corsOptions = {
-  origin: [`http://localhost:3000`],
+  origin: [`http://localhost:3000`, 'https://toolorganize.herokuapp.com/'],
   credentials: true, 
   optionsSuccessStatus: 204  
 }
@@ -24,7 +24,7 @@ app.use(cors(corsOptions))
 
 app.use(session({
   
-  store: new MongoStore({ url: "mongodb://localhost:27017/toolorganizer" }),
+  store: new MongoStore({ url: process.env.MONGODB_URI || "mongodb://localhost:27017/toolorganizer" }),
   secret: "what",
   resave: false,
   saveUninitialized: false,
